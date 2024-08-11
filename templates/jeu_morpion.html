@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jeu Morpion</title>
+    <link rel="stylesheet" href="/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="/css/all.css">
+    <link rel="stylesheet" href="/css/fontawesome.css">
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+        <div class="container-fluid">
+          <!-- <span class="navbar-brand" href="#">Morpion</span> -->
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+              
+              <li class="nav-item">
+                <a class="nav-link active" href="/"><i class="fa fa-undo"></i> Menu principal</a>
+              </li>
+              <!-- <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                  Joueur
+                </a>
+                <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                  <li><a class="dropdown-item" href="/jeu/morpion">Jeu de morpion</a></li>
+                  
+                </ul>
+              </li> -->
+              
+            </ul>
+        
+          </div>
+        </div>
+      </nav>
+
+      <div class="container mt-5">
+        <div class="row">
+            <div class="col-sm-12 col-md-6 offset-md-3">
+
+                <div class="alert d-none" role="alert" id="turn-message"></div>
+
+                <div class="card mb-3" id="user-card">
+                    <div class="card-body">
+                        <form action="" method="post" id="form">
+                            <div class="mb-3">
+                                <label for="username">Nom de joueur ou nom de la partie</label>
+                                <input type="text" class="form-control" id="username" minlength="2" maxlength="20" placeholder="Saisir le nom de joueur ou de la partie" required>
+                            </div>
+                            <button type="submit" id="start" class="btn btn-primary"><i class="fa fa-user-friends"></i> Créer une partie</button>
+                        </form>
+                    </div>
+                </div>
+
+                <div class="card d-none mb-3" id="rooms-card">
+                    <div class="card-header">Les parties disponibles</div>
+                    <ul class="list-group list-group-flush" id="rooms-list"></ul>
+                </div>
+
+                <div class="d-none" id="waiting-area">
+                    <div class="card mb-3">
+                        <div class="card-header text-center">En attente d'un autre Joueur</div>
+                        <div class="card-body mx-auto">
+                            <div class="spinner-border" role="status">
+                                <span class="visually-hidden">Chargement...</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="card">
+                        <div class="card-body text-center">
+                            Partager ce lien pour inviter quelqu'un à jouer avec vous
+                            <span id="link-to-share"></span>
+                        </div>
+                    </div>
+
+                </div>
+
+                <div class="card d-none mb-3" id="game-card">
+                    <div class="card-header text-center">
+                        Jeu de morpion
+                    </div>
+                    <div class="card-body mx-auto">
+                        <table class="board">
+                            <tr>
+                                <td class="cell" id="cell-1-1"></td>
+                                <td class="cell" id="cell-1-2"></td>
+                                <td class="cell" id="cell-1-3"></td>
+                            </tr>
+
+                            <tr>
+                                <td class="cell" id="cell-2-1"></td>
+                                <td class="cell" id="cell-2-2"></td>
+                                <td class="cell" id="cell-2-3"></td>
+                            </tr>
+                                <td class="cell" id="cell-3-1"></td>
+                                <td class="cell" id="cell-3-2"></td>
+                                <td class="cell" id="cell-3-3"></td>
+                            <tr>
+
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+
+                <div class="text-center d-none mt-2 mb-3" id="restart-area">
+                    <input type="button" class="btn btn-primary" id="restart" value="Rejouer de noueau">
+                </div>
+
+
+            </div>
+        </div>
+      </div>
+
+      <script src="/bootstrap/js/bootstrap.bundle.min.js"></script>
+      <script src="/jquery/jquery.min.js"></script>
+      <script src="/socket.io/socket.io.js"></script>
+      <script src="/js/index.js"></script>
+</body>
+</html>
